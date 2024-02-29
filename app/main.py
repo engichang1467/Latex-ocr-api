@@ -10,9 +10,11 @@ from fastapi import FastAPI, File, UploadFile
 app = FastAPI()
 latex_ocr_model = LatexOCR()
 
+
 @app.get("/")
 def read_root():
     return {"status": "ok"}
+
 
 # Takes in an image and returns the latex code
 @app.post("/latex/")
@@ -28,7 +30,7 @@ async def read_item(file: UploadFile = File(...)):
 
     try:
         # Open the temporary file and pass its file object to the model
-        with open(temp_file_path, 'rb') as temp_file_obj:
+        with open(temp_file_path, "rb") as temp_file_obj:
             img_data = temp_file_obj.read()
 
         img_bytes = io.BytesIO(img_data)

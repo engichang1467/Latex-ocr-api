@@ -1,0 +1,5 @@
+pix2tex
+python-multipart
+shutils
+fastapi
+uvicorn[standard]
